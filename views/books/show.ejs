@@ -1,0 +1,33 @@
+<h2 class="page-header"><%= book.title %></h2>
+<div class="book-details">
+  <div>
+    <img class="book-cover" src="<%= book.coverImagePath %>">
+    <div class="book-details-btn-grid">
+      <a class="btn btn-primary" href="/books/<%= book.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm', { url: `/books/${book.id}` }) %>
+      <a class="btn btn-primary book-details-author-button" href="/authors/<%= book.author.id %>">View Master</a>
+    </div>
+  </div>
+  <div class="book-details-grid">
+    <div class="book-details-label">Master:</div>
+    <div><%= book.author.name %></div>
+    <div class="book-details-label">Joining Date:</div>
+    <div><%= book.publishDate.toDateString() %></div>
+    <div class="book-details-label">Timing:</div>
+    <div><%= book.timing %></div>
+    <div class="book-details-label">Gender:</div>
+    <div><%= book.pageCount %></div>
+    <div class="book-details-label">Phone Number:</div>
+    <div><%= book.phoneNumber %></div>
+    <div class="book-details-label">Email Address:</div>
+    <div><%= book.emailAddress %></div>
+    <div class="book-details-label">Qualification:</div>
+    <div><%= book.qualiFication %></div>
+    <div class="book-details-label">Adhaar/PAN No:</div>
+    <div><%= book.apNumber %></div>
+    <div class="book-details-label">Fee Day:</div>
+    <div><%= book.feeDay %></div>
+    <div class="book-details-label">Address:</div>
+    <div><%= book.description %></div>
+  </div>
+</div>
