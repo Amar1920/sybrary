@@ -8,7 +8,7 @@
 
 <div class="form-row">
 <div class="form-item">
-  <label>Name</label>
+  <label>Group</label>
   <select name="author">
     <% authors.forEach(author => { %>
       <% if (author.id === book.author) { %>
@@ -19,6 +19,10 @@
     <% }) %>
   </select>
 </div>
+<div class="form-item">
+    <label>Name</label>
+    <input type="text" name="name" value="<%= book.name %>">
+  </div>
 </div>
 
 <div class="form-row">

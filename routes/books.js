@@ -8,7 +8,9 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 router.get('/', async (req, res) => {
   let query = Book.find()
   
-  
+  if (req.query.name != null && req.query.name != '') {
+    query = query.regex('name', new RegExp(req.query.name))
+  }
   if (req.query.title != null && req.query.title != '') {
     query = query.regex('title', new RegExp(req.query.title))
   }
@@ -41,6 +43,7 @@ router.get('/new', async (req, res) => {
 router.post('/', async (req, res) => {
   const book = new Book({
     title: req.body.title,
+    name: req.body.name,
     author: req.body.author,
     publishDate: new Date(req.body.publishDate),
     timing: req.body.timing,
@@ -91,6 +94,7 @@ router.put('/:id', async (req, res) => {
   try {
     book = await Book.findById(req.params.id)
     book.title = req.body.title
+    book.name = req.body.name
     book.author = req.body.author
     book.publishDate = new Date(req.body.publishDate)
     book.timing = req.body.timing
