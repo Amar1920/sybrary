@@ -39,7 +39,7 @@ const bookSchema = new mongoose.Schema({
   },
 
   apNumber: {
-    type: Number,
+    type: String,
     required: true
   },
   feeDay: {

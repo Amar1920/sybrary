@@ -130,7 +130,7 @@ router.delete('/:id', async (req, res) => {
     if (book != null) {
       res.render('books/show', {
         book: book,
-        errorMessage: 'Could not remove book'
+        errorMessage: 'error occured'
       })
     } else {
       res.redirect('/')
@@ -155,9 +155,9 @@ async function renderFormPage(res, book, form, hasError = false) {
     }
     if (hasError) {
       if (form === 'edit') {
-        params.errorMessage = 'Error Updating Book'
+        params.errorMessage = 'Error Updating Master'
       } else {
-        params.errorMessage = 'Error Creating Book'
+        params.errorMessage = 'Error Creating Master'
       }
     }
     res.render(`books/${form}`, params)

@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
   } catch {
     res.render('authors/new', {
       author: author,
-      errorMessage: 'Error creating Author'
+      errorMessage: 'Error creating group'
     })
   }
 })
@@ -76,7 +76,7 @@ router.put('/:id', async (req, res) => {
     } else {
       res.render('authors/edit', {
         author: author,
-        errorMessage: 'Error updating Author'
+        errorMessage: 'Error updating group'
       })
     }
   }
